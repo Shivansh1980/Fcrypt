@@ -42,7 +42,7 @@
         app:layout_constraintVertical_bias="0.428">
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/email_id"
             android:layout_width="wrap_content"
             android:layout_height="65dp"
             android:layout_marginBottom="7dp"
@@ -62,7 +62,7 @@
             android:textSize="21sp" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="65dp"
             android:layout_marginTop="7sp"
@@ -102,7 +102,7 @@
         app:layout_constraintVertical_bias="0.543" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/login_button"
         android:layout_width="241dp"
         android:layout_height="69dp"
         android:background="@drawable/login"
@@ -117,7 +117,7 @@
         app:layout_constraintVertical_bias="0.698" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/login_to_signup_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/actionBarItemBackground"

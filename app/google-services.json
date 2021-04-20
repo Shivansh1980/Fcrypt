@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "168947977616",
+    "project_id": "fcrypt-4a9d1",
+    "storage_bucket": "fcrypt-4a9d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168947977616:android:976e0e2f9ba08eee023715",
+        "android_client_info": {
+          "package_name": "com.example.fcrypt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168947977616-agicd8v6f8le1rv7t1nanmnsrdd1nt32.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqoOQEDEywx7fBWXsptJetvOK3oMrDdKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168947977616-agicd8v6f8le1rv7t1nanmnsrdd1nt32.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
