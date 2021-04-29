@@ -183,7 +183,7 @@ public class SignupFragment extends Fragment {
         });
     }
     public void open_dashboard(){
-        Intent intent = new Intent(getContext(), encryptor.class);
+        Intent intent = new Intent(getContext(), nav_home.class);
         startActivity(intent);
     }
 
