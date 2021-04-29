@@ -15,15 +15,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-public class FirstFragment extends Fragment {
+public class SigninFragment extends Fragment {
     private TextView email_id;
     private TextView password;
     private Button login_button;
@@ -38,7 +36,7 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_first, container, false);
+        View root = inflater.inflate(R.layout.fragment_signin, container, false);
         email_id = root.findViewById(R.id.email_id);
         password = root.findViewById(R.id.password);
         login_button = root.findViewById(R.id.login_button);

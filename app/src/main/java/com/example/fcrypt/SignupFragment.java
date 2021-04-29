@@ -18,7 +18,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -30,15 +29,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.squareup.picasso.Picasso;
 
-import java.util.zip.Inflater;
-
 import static android.app.Activity.RESULT_OK;
 
-public class SecondFragment extends Fragment {
+public class SignupFragment extends Fragment {
 
     private TextView email_id;
     private TextView password;
@@ -65,7 +61,7 @@ public class SecondFragment extends Fragment {
         progressDialog.setTitle("Signing In");
         progressDialog.setMessage("Please Wait Loading...");
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_second, container, false);
+        View root = inflater.inflate(R.layout.fragment_signup, container, false);
         GoogleSignInOptions gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
