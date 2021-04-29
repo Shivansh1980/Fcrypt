@@ -156,7 +156,7 @@ public class SignupFragment extends Fragment {
                                 @Override
                                 public void run() {
                                     progressDialog.dismiss();
-                                    Toast.makeText(getContext(), "You Have Been Successfully Registered", Toast.LENGTH_SHORT).show();
+                                    open_dashboard();
                                 }
                             },1500);
                         } else {
@@ -173,7 +173,7 @@ public class SignupFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(getContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
+                    open_dashboard();
                     progressDialog.dismiss();
                 } else {
                     Toast.makeText(getContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();
@@ -181,6 +181,10 @@ public class SignupFragment extends Fragment {
                 }
             }
         });
+    }
+    public void open_dashboard(){
+        Intent intent = new Intent(getContext(), encryptor.class);
+        startActivity(intent);
     }
 
 }
