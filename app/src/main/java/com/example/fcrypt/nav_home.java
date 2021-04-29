@@ -2,8 +2,11 @@ package com.example.fcrypt;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -12,7 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class nav_home extends AppCompatActivity {
+public class nav_home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private  NavController navController;
@@ -33,6 +36,7 @@ public class nav_home extends AppCompatActivity {
 
         NavigationUI.setupActionBarWithNavController(this, navController, drawer);
         NavigationUI.setupWithNavController(navigationView, navController);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -54,5 +58,21 @@ public class nav_home extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.dashboardFragment: {
+                navController.navigate(R.id.dashboardFragment);
+                break;
+            }
+            case R.id.encryptorFragment: {
+                navController.navigate(R.id.encryptorFragment);
+            }
+        }
+        item.setChecked(true);
+        drawer.closeDrawer(GravityCompat.START);
+        return super.onOptionsItemSelected(item);
     }
 }
