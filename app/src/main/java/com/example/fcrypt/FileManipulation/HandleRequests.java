@@ -14,6 +14,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import okhttp3.OkHttpClient;
+
 public class HandleRequests {
     String attachmentName = "bitmap";
     String attachmentFileName = "bitmap.bmp";
@@ -26,7 +28,7 @@ public class HandleRequests {
     DataOutputStream request;
     Bitmap bitmap;
 
-    HandleRequests(String request_url) throws IOException {
+    public HandleRequests(String request_url) throws IOException {
         url = new URL(request_url);
         httpUrlConnection = (HttpURLConnection) url.openConnection();
         httpUrlConnection.setUseCaches(false);
@@ -37,22 +39,23 @@ public class HandleRequests {
         httpUrlConnection.setRequestProperty("Cache-Control", "no-cache");
         httpUrlConnection.setRequestProperty(
                 "Content-Type", "multipart/form-data;boundary=" + this.boundary);
+
          request = new DataOutputStream(
                 httpUrlConnection.getOutputStream());
     }
-    void setContentType(String content_type){
+    public void setContentType(String content_type){
         httpUrlConnection.setRequestProperty(
                 "Content-Type", content_type+";boundary=" + this.boundary);
     }
-    void initializeRequest() throws IOException {
+
+    public void sendFile(Uri uri) throws IOException {
+
         request.writeBytes(this.twoHyphens + this.boundary + this.crlf);
         request.writeBytes("Content-Disposition: form-data; name=\"" +
                 this.attachmentName + "\";filename=\"" +
                 this.attachmentFileName + "\"" + this.crlf);
         request.writeBytes(this.crlf);
 
-    }
-    void send_file(Uri uri) throws IOException {
         FileManipulation file_manipulation = new FileManipulation(uri);
         bitmap = file_manipulation.getBitmapOfFile();
 
@@ -69,7 +72,7 @@ public class HandleRequests {
         request.flush();
         request.close();
     }
-    String getResponse() throws IOException {
+    public String getResponse() throws IOException {
         InputStream responseStream = new
                 BufferedInputStream(httpUrlConnection.getInputStream());
 

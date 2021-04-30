@@ -13,7 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.fcrypt.FileManipulation.FileManipulation;
+import com.example.fcrypt.FileManipulation.HandleRequests;
 import com.squareup.picasso.Picasso;
 
 import java.io.DataOutputStream;
@@ -68,6 +71,12 @@ public class EncryptorFragment extends Fragment {
         get_request_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                HandleRequests handleRequests = null;
+                try {
+                    handleRequests = new HandleRequests("http://encryptor-api.herokuapp.com/encryptfiles/encrypt_file/");
+                } catch (IOException e) {
+                    Toast.makeText(getContext(), e.toString() , Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -80,9 +89,5 @@ public class EncryptorFragment extends Fragment {
         if(requestCode == PICK_FILE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
             file_uri = data.getData();
         }
-    }
-
-    public void uploadFile(String uploadUrl) throws IOException {
-
     }
 }
