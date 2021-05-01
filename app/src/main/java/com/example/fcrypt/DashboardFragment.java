@@ -7,6 +7,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.smarteist.autoimageslider.DefaultSliderView;
+import com.smarteist.autoimageslider.IndicatorAnimations;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +20,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class DashboardFragment extends Fragment {
+    private SliderLayout sliderLayout;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +67,37 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View view= inflater.inflate(R.layout.fragment_dashboard, container, false);
+        sliderLayout = view.findViewById(R.id.slider);
+        sliderLayout.setIndicatorAnimation(IndicatorAnimations.FILL);
+        sliderLayout.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
+        sliderLayout.setScrollTimeInSec(3);
+
+        setsliderViews();
+
+        return view;
+    }
+
+    private void setsliderViews() {
+        for (int i=0;i<3;i++){
+            DefaultSliderView sliderView=new DefaultSliderView(getContext());
+
+            switch(i){
+                case 0:
+//                    sliderView.setDescription();
+                    sliderView.setImageUrl("https://bit.ly/3fLJf72");
+                    break;
+                case 1:
+//                    sliderView.setDescription();
+                    sliderView.setImageUrl("https://bit.ly/2BteuF2");
+                    break;
+                case 2:
+//                    sliderView.setDescription();
+                    sliderView.setImageUrl("https://bit.ly/2YoJ77H");
+                    break;
+            }
+            sliderView.setImageScaleType(ImageView.ScaleType.CENTER_CROP);
+            sliderLayout.addSliderView(sliderView);
+        }
     }
 }
