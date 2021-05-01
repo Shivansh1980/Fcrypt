@@ -20,10 +20,13 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.DownloadListener;
@@ -53,7 +56,7 @@ public class EncryptorFragment extends Fragment {
     nav_home Refresh;
 
     private static String webview_url = "https://encryptor-api.herokuapp.com/";
-    private static String file_type = "image/*";
+    private static String file_type = "*/*";
     private boolean multiple_files = true;
 
     private final static int FCR = 1;
@@ -178,8 +181,34 @@ public class EncryptorFragment extends Fragment {
             }
         });
 
+        webView.setOnKeyListener(new View.OnKeyListener(){
+
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK
+                        && event.getAction() == MotionEvent.ACTION_UP
+                        && webView.canGoBack()) {
+                    handler.sendEmptyMessage(1);
+                    return true;
+                }
+
+                return false;
+            }
+
+        });
+
         return root;
     }
+
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message message) {
+            switch (message.what) {
+                case 1:{
+                    webView.goBack();
+                }break;
+            }
+        }
+    };
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
