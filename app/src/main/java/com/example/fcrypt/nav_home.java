@@ -53,10 +53,15 @@ public class nav_home extends AppCompatActivity implements NavigationView.OnNavi
 
     @Override
     public void onBackPressed() {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        }
+        else {
+            if(count == 0) super.onBackPressed();
+            else {
+                getSupportFragmentManager().popBackStack();
+            }
         }
     }
 
