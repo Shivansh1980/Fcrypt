@@ -121,6 +121,7 @@ public class EncryptorFragment extends Fragment {
                 i.setType("*/*");
                 getActivity().startActivityForResult(Intent.createChooser(i, "File Chooser"), FCR);
             }
+
             // For Android 3.0+, above method not supported in some android 3+ versions, in such case we use this
             public void openFileChooser(ValueCallback uploadMsg, String acceptType) {
                 mUM = uploadMsg;
@@ -131,6 +132,7 @@ public class EncryptorFragment extends Fragment {
                         Intent.createChooser(i, "File Browser"),
                         FCR);
             }
+
             //For Android 4.1+
             public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
                 mUM = uploadMsg;
@@ -139,6 +141,7 @@ public class EncryptorFragment extends Fragment {
                 i.setType("*/*");
                 getActivity().startActivityForResult(Intent.createChooser(i, "File Chooser"), FCR);
             }
+
             //For Android 5.0+
             public boolean onShowFileChooser(
                     WebView webView, ValueCallback<Uri[]> filePathCallback,
@@ -181,7 +184,7 @@ public class EncryptorFragment extends Fragment {
             }
         });
 
-        webView.setOnKeyListener(new View.OnKeyListener(){
+        webView.setOnKeyListener(new View.OnKeyListener() {
 
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_BACK
@@ -199,13 +202,14 @@ public class EncryptorFragment extends Fragment {
         return root;
     }
 
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message message) {
             switch (message.what) {
-                case 1:{
+                case 1: {
                     webView.goBack();
-                }break;
+                }
+                break;
             }
         }
     };
