@@ -83,16 +83,16 @@ public class DashboardFragment extends Fragment {
 
             switch(i){
                 case 0:
-//                    sliderView.setDescription();
-                    sliderView.setImageUrl("https://bit.ly/3fLJf72");
+                    sliderView.setDescription("Encrypt and Decrypt your Files here");
+                    sliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/fcrypt-4a9d1.appspot.com/o/encrypt_decrypt.jpeg?alt=media&token=5f3513e4-8e3b-4083-823a-2be7714b3afa");
                     break;
                 case 1:
-//                    sliderView.setDescription();
-                    sliderView.setImageUrl("https://bit.ly/2BteuF2");
+                    sliderView.setDescription("Upcoming!!!");
+                    sliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/fcrypt-4a9d1.appspot.com/o/word_to_pdf.jpeg?alt=media&token=a53695e1-4656-4b72-be3e-713e23280cc7");
                     break;
                 case 2:
-//                    sliderView.setDescription();
-                    sliderView.setImageUrl("https://bit.ly/2YoJ77H");
+                    sliderView.setDescription("Upcoming!!!");
+                    sliderView.setImageUrl("https://firebasestorage.googleapis.com/v0/b/fcrypt-4a9d1.appspot.com/o/jpg_to_pdf.jpeg?alt=media&token=e9cf4374-249d-4b42-95b5-c217ed70a55b");
                     break;
             }
             sliderView.setImageScaleType(ImageView.ScaleType.CENTER_CROP);
