@@ -255,6 +255,8 @@ public class EncryptorFragment extends Fragment {
         super.onConfigurationChanged(newConfig);
     }
 
+
+
     public boolean file_permission() {
         if (Build.VERSION.SDK_INT >= 23 && (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1);
